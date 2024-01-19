@@ -1,7 +1,7 @@
 import math
 
 
-version = '0.3.1'
+version = '0.4.0'
 print(f"\nWelcome to Kerbal Satellite Networks v{version}!\nThis program helps you create satellite networks in Kerbal Space Program.\n")
 
 bodiesInfo = {
@@ -153,7 +153,6 @@ transferPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * ((2 / finalSMA) - (1 
 finalPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * (1 / finalSMA))
 dV = transferPeriapseSpeed - finalPeriapseSpeed
 
-
-print("\nTransfer orbit characteristics:\n\n", f"Period: {int(transferPeriod // 60)}m {round(transferPeriod % 60, 3)}s\n", f"Apoapsis: {round(transferApoapsis, 1)}m\n", f"Periapsis: {round(transferPeriapsis, 1)}m\n", f"Semi-major axis: {round(transferSMA, 1)}m")
-print("\nFinal orbit characteristics:\n\n", f"Period: {int(finalPeriod // 60)}m {round(finalPeriod % 60, 3)}s\n", f"Apoapsis: {round(finalOrbitHeight, 1)}m\n", f"Periapsis: {round(finalOrbitHeight, 1)}m\n", f"Semi-major axis: {round(finalSMA, 1)}m")
+print("\nTransfer orbit characteristics:\n\n", f"Period: {int(transferPeriod // 3600)}h {int((transferPeriod // 60) % 60)}m {round(transferPeriod % 60, 3)}s\n", f"Apoapsis: {round(transferApoapsis, 1)}m\n", f"Periapsis: {round(transferPeriapsis, 1)}m\n", f"Semi-major axis: {round(transferSMA, 1)}m")
+print("\nFinal orbit characteristics:\n\n", f"Period: {int(finalPeriod // 3600)}h {int((finalPeriod // 60) % 60)}m {round(finalPeriod % 60, 3)}s\n", f"Apoapsis: {round(finalOrbitHeight, 1)}m\n", f"Periapsis: {round(finalOrbitHeight, 1)}m\n", f"Semi-major axis: {round(finalSMA, 1)}m")
 print(f"\nTransfer delta-V: {round(dV, 2)} m/s")
