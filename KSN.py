@@ -1,7 +1,7 @@
 import math
 
 
-version = '0.1'
+version = '0.2.1'
 print(f"\nWelcome to Kerbal Satellite Networks v{version}!\nThis program helps you create satellite networks in Kerbal Space Program.\n")
 
 bodiesInfo = {
