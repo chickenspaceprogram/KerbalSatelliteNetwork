@@ -1,7 +1,7 @@
 import math
 
 
-version = '0.2.1'
+version = '0.3.1'
 print(f"\nWelcome to Kerbal Satellite Networks v{version}!\nThis program helps you create satellite networks in Kerbal Space Program.\n")
 
 bodiesInfo = {
@@ -151,8 +151,6 @@ transferApoapsis = 2 * transferSMA - finalSMA - bodiesInfo[body]['radius']
 finalOrbitHeight = finalSMA - bodiesInfo[body]['radius']
 transferPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * ((2 / finalSMA) - (1 / transferSMA)))
 finalPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * (1 / finalSMA))
-print(transferPeriapseSpeed)
-print(finalPeriapseSpeed)
 dV = transferPeriapseSpeed - finalPeriapseSpeed
 
 
