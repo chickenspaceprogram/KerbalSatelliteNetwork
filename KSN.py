@@ -149,6 +149,13 @@ transferSMA = (((transferPeriod ** 2) * bodiesInfo[body]['gm']) / (4 * math.pi *
 transferPeriapsis = finalSMA - bodiesInfo[body]['radius']
 transferApoapsis = 2 * transferSMA - finalSMA - bodiesInfo[body]['radius']
 finalOrbitHeight = finalSMA - bodiesInfo[body]['radius']
+transferPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * ((2 / finalSMA) - (1 / transferSMA)))
+finalPeriapseSpeed = math.sqrt(bodiesInfo[body]['gm'] * (1 / finalSMA))
+print(transferPeriapseSpeed)
+print(finalPeriapseSpeed)
+dV = transferPeriapseSpeed - finalPeriapseSpeed
+
 
 print("\nTransfer orbit characteristics:\n\n", f"Period: {int(transferPeriod // 60)}m {round(transferPeriod % 60, 3)}s\n", f"Apoapsis: {round(transferApoapsis, 1)}m\n", f"Periapsis: {round(transferPeriapsis, 1)}m\n", f"Semi-major axis: {round(transferSMA, 1)}m")
 print("\nFinal orbit characteristics:\n\n", f"Period: {int(finalPeriod // 60)}m {round(finalPeriod % 60, 3)}s\n", f"Apoapsis: {round(finalOrbitHeight, 1)}m\n", f"Periapsis: {round(finalOrbitHeight, 1)}m\n", f"Semi-major axis: {round(finalSMA, 1)}m")
+print(f"\nTransfer delta-V: {round(dV, 2)} m/s")
