@@ -98,7 +98,7 @@ bodiesInfo = {
 
 dictSelectDefaultString = 'Please select an option by entering the corresponding key.'
 def dictSelect(menuDict: dict, infoMessage: str=dictSelectDefaultString, showKeys: bool=True, valuesHaveInfo: bool=True):
-    print(infoMessage)
+    print(infoMessage, end='')
     if showKeys:
         for key in menuDict:
             if valuesHaveInfo:
@@ -122,7 +122,7 @@ def dictSelect(menuDict: dict, infoMessage: str=dictSelectDefaultString, showKey
         selection = input().lower()
     return selection
 
-body = dictSelect(bodiesInfo, "To start, enter the name of the body you want your satellite network to orbit.", False, False)
+body = dictSelect(bodiesInfo, "To start, enter the name of the body you want your satellite network to orbit: ", False, False)
 if body == 'custom':
     bodiesInfo['custom']['gm'] = float(input("Please enter the standard gravitational parameter for the body (equal to G * M). "))
     bodiesInfo['custom']['radius'] = float(input("Please enter the radius of the body. "))
@@ -136,7 +136,7 @@ orbitSelectDict = {
     'min' : 'Uses an orbit with the minimum safe radius possible.',
     'select' : 'Allows you to select the altitude of an orbit you want to use.'
 }
-orbitSelection = dictSelect(orbitSelectDict, "Do you want to automatically select the lowest possible orbit, or do you want to use your own orbit?")
+orbitSelection = dictSelect(orbitSelectDict, "Do you want to automatically select the lowest possible orbit, or do you want to use your own orbit?\n")
 if orbitSelection == 'min':
     finalSMA = bodiesInfo[body]['minsafeorbit'] / math.cos(math.pi / numSats)
 else:
